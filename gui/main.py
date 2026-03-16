@@ -1,5 +1,5 @@
 import sys
-import tarotcard
+import gui.CardFactory as CardFactory
 from PyQt6.QtWidgets import *
 class MainWindow(QWidget):
     def __init__(self, *args, **kwargs):
@@ -8,18 +8,16 @@ class MainWindow(QWidget):
         self.setWindowTitle('The Fools Journey')
         self.setGeometry(0,0, 908, 680)
         
-        card = tarotcard.CardFactory.create_card()
+        card = CardFactory.CardFactory.create_card()
         
 
         layout = QHBoxLayout()
         layout.addWidget(card)
-        layout.addWidget(tarotcard.CardFactory.create_card())
+        layout.addWidget(CardFactory.CardFactory.create_card())
         self.setLayout(layout)
 
         self.show()
-        
-    def button_clicked(self):
-        print('clicked')
+
         
     
         
